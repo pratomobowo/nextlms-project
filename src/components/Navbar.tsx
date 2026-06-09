@@ -23,27 +23,27 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Center - Search */}
-            <div className="hidden md:ml-8 md:flex flex-1 max-w-2xl">
+            <div className="hidden md:flex md:ml-6 flex-1 max-w-[200px] lg:max-w-xs xl:max-w-md">
               <div className="w-full relative group">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Search className="h-5 w-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                 </div>
                 <input
                   type="text"
-                  className="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-full leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 sm:text-sm"
-                  placeholder="Cari materi pelatihan (contoh: GTAW, Bahasa Jepang)..."
+                  className="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-full leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 text-sm"
+                  placeholder="Cari materi pelatihan..."
                 />
               </div>
             </div>
           </div>
 
           {/* Desktop Right */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             <Link 
               to="/categories" 
               className={clsx(
-                "text-sm font-medium transition-colors hover:text-indigo-600",
-                isActive('/categories') ? "text-indigo-600" : "text-gray-600"
+                "text-sm font-medium transition-all px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50",
+                isActive('/categories') && "text-indigo-600 bg-indigo-50"
               )}
             >
               Kategori
@@ -51,8 +51,8 @@ export default function Navbar() {
             <Link 
               to="/dashboard" 
               className={clsx(
-                "text-sm font-medium transition-colors hover:text-indigo-600",
-                isActive('/dashboard') ? "text-indigo-600" : "text-gray-600"
+                "text-sm font-medium transition-all px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50",
+                isActive('/dashboard') && "text-indigo-600 bg-indigo-50"
               )}
             >
               Dasbor Siswa
@@ -60,14 +60,14 @@ export default function Navbar() {
             <Link 
               to="/admin" 
               className={clsx(
-                "text-sm font-medium transition-colors hover:text-indigo-600",
-                isActive('/admin') ? "text-indigo-600" : "text-gray-600"
+                "text-sm font-medium transition-all px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50",
+                isActive('/admin') && "text-indigo-600 bg-indigo-50"
               )}
             >
               Admin
             </Link>
             
-            <div className="flex items-center space-x-5 border-l border-gray-200 pl-6 lg:pl-8">
+            <div className="flex items-center space-x-5 border-l border-gray-200 pl-4 lg:pl-6">
               <Link to="/cart" className="text-gray-500 hover:text-indigo-600 transition-colors relative block">
                 <ShoppingCart className="w-5 h-5" />
               </Link>

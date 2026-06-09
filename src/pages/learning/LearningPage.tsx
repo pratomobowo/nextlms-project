@@ -168,7 +168,7 @@ export default function LearningPage() {
               </div>
               
               <PlayCircle className="w-16 h-16 text-white/50 cursor-pointer hover:text-white hover:scale-110 transition-all z-0" />
-              <img src="https://images.unsplash.com/photo-1507676184212-d0330a1c6f5e?auto=format&fit=crop&w=1200&q=80" alt="Video Thumbnail" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" />
+              <img src="https://images.unsplash.com/photo-1516012727144-88403d9b546d?auto=format&fit=crop&w=1200&q=80" alt="Video Thumbnail" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" />
             </div>
           )}
 

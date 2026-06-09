@@ -42,7 +42,7 @@ export const mockCourses: Course[] = [
     price: 89.99,
     rating: 4.9,
     reviewsCount: 840,
-    thumbnail: 'https://images.unsplash.com/photo-1579201533471-1e9d1bf76293?auto=format&fit=crop&q=80&w=600',
+    thumbnail: 'https://images.unsplash.com/photo-1516012727144-88403d9b546d?auto=format&fit=crop&q=80&w=600',
     category: 'GTAW (Argon)',
     totalHours: 60,
     totalLectures: 48,

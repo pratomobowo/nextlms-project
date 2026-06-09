@@ -103,7 +103,7 @@ export default function StudentDashboard() {
                   {ongoingCourses.map(course => (
                     <div key={course.id} className="relative border border-gray-100 rounded-2xl p-4 flex gap-4 hover:border-indigo-100 transition-colors group">
                        <div className="w-24 h-24 bg-gray-200 rounded-xl flex-shrink-0 overflow-hidden relative">
-                         <img src={`https://images.unsplash.com/photo-${course.id === '1' ? '1507676184212-d0330a1c6f5e' : '1522202176988-66273c2fd55f'}?auto=format&fit=crop&w=300&q=80`} alt="Thumbnail" className="w-full h-full object-cover" />
+                         <img src={`https://images.unsplash.com/photo-${course.id === '1' ? '1516012727144-88403d9b546d' : '1522202176988-66273c2fd55f'}?auto=format&fit=crop&w=300&q=80`} alt="Thumbnail" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                            <PlayCircle className="w-8 h-8 text-white" />
                          </div>
@@ -137,7 +137,7 @@ export default function StudentDashboard() {
                   {ongoingCourses.map(course => (
                     <Link to={`/learning/${course.id}`} key={course.id} className="border border-gray-100 rounded-2xl p-4 flex gap-4 hover:border-indigo-100 hover:shadow-md transition-all group">
                        <div className="w-32 h-24 bg-gray-200 rounded-xl flex-shrink-0 overflow-hidden relative">
-                         <img src={`https://images.unsplash.com/photo-${course.id === '1' ? '1507676184212-d0330a1c6f5e' : '1522202176988-66273c2fd55f'}?auto=format&fit=crop&w=300&q=80`} alt="Thumbnail" className="w-full h-full object-cover" />
+                         <img src={`https://images.unsplash.com/photo-${course.id === '1' ? '1516012727144-88403d9b546d' : '1522202176988-66273c2fd55f'}?auto=format&fit=crop&w=300&q=80`} alt="Thumbnail" className="w-full h-full object-cover" />
                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                            <PlayCircle className="w-10 h-10 text-white" />
                          </div>
