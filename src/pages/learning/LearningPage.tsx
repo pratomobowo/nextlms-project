@@ -11,9 +11,12 @@ import {
   Star,
   ChevronDown,
   ChevronUp,
-  Award
+  Award,
+  Menu,
+  X
 } from 'lucide-react';
 import clsx from 'clsx';
+import BottomNav from '../../components/BottomNav';
 
 const mockCurriculum = [
   {
@@ -113,15 +116,15 @@ export default function LearningPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       {/* Top Navigation */}
       <header className="h-16 bg-gray-900 text-white flex items-center px-4 justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 flex-1">
           <Link to="/dashboard" className="p-2 hover:bg-gray-800 rounded-lg transition-colors group">
             <ChevronLeft className="w-5 h-5 text-gray-300 group-hover:text-white" />
           </Link>
-          <div className="hidden sm:block border-l border-gray-700 h-6 mx-2"></div>
-          <h1 className="font-bold text-sm sm:text-base line-clamp-1">K3 Welding Dasar - Sertifikasi Internasional</h1>
+          <div className="hidden sm:block border-l border-gray-700 h-6 mx-1"></div>
+          <h1 className="font-bold text-sm sm:text-base line-clamp-1">K3 Welding Dasar</h1>
         </div>
         
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <div className="hidden md:flex items-center gap-3">
             <div className="w-32 h-2 bg-gray-700 rounded-full overflow-hidden">
               <div className="w-1/3 h-full bg-indigo-500 rounded-full"></div>
@@ -131,9 +134,15 @@ export default function LearningPage() {
               <span className="text-xs font-semibold text-gray-300">Progress: 33%</span>
             </div>
           </div>
-          <div className="h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-sm">
+          <div className="hidden sm:flex h-8 w-8 rounded-full bg-indigo-600 items-center justify-center font-bold text-sm">
             AS
           </div>
+          <button 
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="lg:hidden p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
+          >
+             <Menu className="w-5 h-5" />
+          </button>
         </div>
       </header>
 
@@ -295,7 +304,7 @@ export default function LearningPage() {
           </button>
 
           {/* Content Details */}
-          <div className="p-4 sm:p-8 max-w-4xl w-full mx-auto">
+          <div className="p-4 sm:p-8 max-w-4xl w-full mx-auto mb-16 md:mb-0">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 font-display">{activeLesson.title}</h2>
             
             {/* Tabs */}
@@ -423,18 +432,26 @@ export default function LearningPage() {
           </div>
         </div>
 
+        {/* Sidebar Drawer Overlay */}
+        {sidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         {/* Sidebar Curriculum */}
         <div className={clsx(
-          "w-full lg:w-[380px] bg-white border-l border-gray-200 lg:absolute lg:right-0 lg:top-0 lg:bottom-0 flex flex-col transition-transform duration-300 ease-in-out z-30",
+          "fixed inset-y-0 right-0 w-[85%] sm:w-[380px] bg-white shadow-2xl z-50 lg:static lg:w-[380px] lg:border-l lg:border-gray-200 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:shadow-none",
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         )}>
           <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50/50">
             <h3 className="font-bold text-sm text-gray-900">Kurikulum Kelas</h3>
-            <button onClick={() => setSidebarOpen(false)} className="lg:hidden p-1 text-gray-500">
-               Catat Menu
+            <button onClick={() => setSidebarOpen(false)} className="lg:hidden p-2 text-gray-500 hover:bg-gray-200 rounded-lg transition-colors">
+               <X className="w-5 h-5" />
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto pb-safe">
             {mockCurriculum.map((module) => (
               <div key={module.id} className="border-b border-gray-100 last:border-0">
                 {/* Module Header */}
@@ -496,6 +513,7 @@ export default function LearningPage() {
         </div>
 
       </div>
+      <BottomNav />
     </div>
   );
 }

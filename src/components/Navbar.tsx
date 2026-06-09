@@ -101,48 +101,86 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-1 shadow-lg absolute w-full rounded-b-2xl">
+        <div 
+          className="fixed inset-0 bg-black/50 z-[60] md:hidden transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu Slide Drawer */}
+      <div className={clsx(
+        "fixed inset-y-0 left-0 w-4/5 max-w-sm bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out md:hidden flex flex-col",
+        mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+      )}>
+        <div className="flex items-center justify-between px-4 py-4 border-b border-gray-100">
+           <Link to="/" className="flex items-center gap-2 flex-shrink-0" onClick={() => setMobileMenuOpen(false)}>
+             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+               <BookOpen className="w-5 h-5 text-white" />
+             </div>
+             <span className="font-bold text-xl font-display text-gray-900 tracking-tight">NEXTLMS</span>
+           </Link>
+           <button
+             onClick={() => setMobileMenuOpen(false)}
+             className="text-gray-500 hover:text-gray-900 p-2 rounded-lg bg-gray-50"
+           >
+             <X className="h-5 w-5" />
+           </button>
+        </div>
+
+        <div className="px-4 py-4 border-b border-gray-100 bg-gray-50/50">
+           {/* Mobile Profile Summary */}
+           <div className="flex items-center gap-3">
+             <img 
+               src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150" 
+               alt="User avatar" 
+               className="w-12 h-12 rounded-full border-2 border-white shadow-sm object-cover"
+             />
+             <div>
+               <div className="font-bold text-gray-900">Andi Saputra</div>
+               <div className="text-xs text-gray-500 font-medium">Siswa Aktif</div>
+             </div>
+           </div>
+        </div>
+
+        <div className="flex-1 overflow-y-auto py-4 px-2 space-y-1">
           <Link
             to="/categories"
-            className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+            className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Kategori
+            Kategori Program
           </Link>
           <Link
             to="/dashboard"
-            className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+            className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
             onClick={() => setMobileMenuOpen(false)}
           >
             Dasbor Siswa
           </Link>
           <Link
             to="/admin"
-            className="block px-3 py-3 rounded-md text-base font-medium text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50"
+            className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
             onClick={() => setMobileMenuOpen(false)}
           >
             Dasbor Admin
           </Link>
-          <div className="pt-4 pb-2 border-t border-gray-100 mt-2 flex items-center space-x-6 px-3">
-            <Link to="/cart" className="text-gray-500 hover:text-indigo-600 relative p-2" onClick={() => setMobileMenuOpen(false)}>
-              <ShoppingCart className="w-6 h-6" />
-            </Link>
-            <button className="text-gray-500 hover:text-indigo-600 relative p-2">
-              <Bell className="w-6 h-6" />
-              <span className="absolute top-2 right-2 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
-            </button>
-            <div className="flex items-center gap-3 ml-auto">
-              <img 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150" 
-                alt="User avatar" 
-                className="w-8 h-8 rounded-full border border-gray-200"
-              />
-            </div>
-          </div>
+          <Link
+            to="/cart"
+            className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Keranjang Belanja
+          </Link>
         </div>
-      )}
+
+        <div className="p-4 border-t border-gray-100">
+           <button className="w-full py-3 bg-indigo-50 text-indigo-700 font-bold rounded-xl text-sm">
+             Keluar
+           </button>
+        </div>
+      </div>
     </nav>
   );
 }
